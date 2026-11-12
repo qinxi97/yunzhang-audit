@@ -392,7 +392,6 @@ select,
 textarea {
   width: 100%;
   margin: 0;
-  padding: 14px 16px;
   border: 1px solid #eaeaea;
   border-radius: 6px;
   background: #f7f7f7;
@@ -405,6 +404,11 @@ textarea {
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+input,
+select {
+  padding: 10px 14px;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: var(--ink-subtle);
@@ -412,7 +416,8 @@ textarea::placeholder {
 
 textarea {
   display: block;
-  min-height: 96px;
+  min-height: 112px;
+  padding: 14px 16px;
   resize: vertical;
 }
 
@@ -450,7 +455,42 @@ button:focus-visible,
 }
 
 .form-actions {
-  margin-top: 40px;
+  margin-top: 28px;
+}
+
+.wechat {
+  margin-top: 36px;
+}
+
+.wechat p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 14px;
+}
+
+.wechat p.wechat-id {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: 1px solid #e4e2dd;
+  border-radius: 6px;
+  background: #f7f7f7;
+  color: var(--ink);
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  user-select: all;
+}
+
+.wechat-id code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 15px;
+}
+
+.privacy {
+  margin: 14px 0 0;
+  color: #b0aea8;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .quiet {

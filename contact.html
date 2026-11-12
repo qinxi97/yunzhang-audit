@@ -10,7 +10,7 @@
   <!--
     上线前替换：
     1. FORMSPREE_ENDPOINT → https://formspree.io/f/你的表单 ID
-    2. mailto:your-email@example.com
+    2. 微信号 yunzhang_audit
   -->
 </head>
 <body>
@@ -92,15 +92,18 @@
           <p class="fine" id="count-hint">最多 200 字</p>
         </div>
 
+        <p class="fine" id="form-warn" hidden>表单还没接上。请先换成你的 Formspree 地址。</p>
+
         <div class="form-actions">
           <button class="btn" type="submit">提交</button>
         </div>
-
-        <p class="fine" id="form-warn" hidden>表单还没接上。请先换成你的 Formspree 地址。</p>
       </form>
 
-      <p class="quiet">不想填表？直接发邮件到 <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-      <p class="fine">信息只用于这次沟通，不会用于其他用途。</p>
+      <div class="wechat">
+        <p>不想填表？可以加微信直接聊：</p>
+        <p class="wechat-id">微信号：<code>yunzhang_audit</code></p>
+      </div>
+      <p class="privacy">信息只用于这次沟通，不会用于其他用途。</p>
     </section>
   </main>
 
