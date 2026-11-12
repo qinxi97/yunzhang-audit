@@ -257,6 +257,10 @@ h2 {
   margin: 0;
 }
 
+.part p.stat {
+  margin: 36px 0 20px;
+}
+
 .findings {
   margin: 0;
   padding: 0;
@@ -278,6 +282,7 @@ h2 {
   margin-top: 10px;
   padding: 14px 16px 14px 40px;
   border-radius: 6px;
+  background: #f0eeea;
   font-size: 16px;
   line-height: 1.8;
   transition: background-color 0.3s ease;
@@ -294,7 +299,7 @@ h2 {
 }
 
 .checks li:hover {
-  background: #f0eeea;
+  background: #e7e4de;
 }
 
 .fine {
@@ -326,23 +331,28 @@ h2 {
 .points li::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.95em;
+  left: 1px;
+  top: 0.85em;
   width: 6px;
   height: 6px;
+  border: 1px solid #8a8883;
   border-radius: 50%;
-  background: var(--ink);
+  background: transparent;
 }
 
 .stat {
   display: block;
-  margin: 4px 0 12px;
+  margin: 36px 0 20px;
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: 44px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.15;
   letter-spacing: 0.02em;
+}
+
+.service-cta {
+  margin: 64px 0 0;
 }
 
 .offer h3 {
@@ -374,7 +384,7 @@ h2 {
 
 .req {
   margin-left: 2px;
-  color: #c23b3b;
+  color: #8f5e5e;
 }
 
 input,
@@ -417,7 +427,7 @@ select {
 }
 
 select:invalid {
-  color: var(--ink-subtle);
+  color: #b7b5b0;
 }
 
 select option {
@@ -528,7 +538,7 @@ button:focus-visible,
   }
 
   .stat {
-    font-size: 40px;
+    font-size: 56px;
   }
 
   h2 {
@@ -552,6 +562,10 @@ button:focus-visible,
 
   .hero h1 {
     font-size: 48px;
+  }
+
+  .stat {
+    font-size: 72px;
   }
 
   .rest {
