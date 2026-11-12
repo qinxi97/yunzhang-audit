@@ -78,7 +78,7 @@ a:hover {
 
 .nav {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding-top: 28px;
@@ -96,8 +96,10 @@ a:hover {
 
 .nav-links {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px 18px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -115,6 +117,23 @@ a:hover {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+.nav-links a.nav-cta,
+.nav-links a.nav-cta:hover,
+.nav-links a.nav-cta[aria-current="page"] {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.nav-links a.nav-cta:hover {
+  background: #111;
+  transform: scale(1.04);
 }
 
 .hero {
@@ -172,8 +191,9 @@ a:hover {
 }
 
 .btn:hover {
-  background: #444440;
+  background: #111;
   text-decoration: none;
+  transform: scale(1.03);
 }
 
 .text-link {
@@ -192,9 +212,9 @@ a:hover {
 
 .trust {
   margin: 0;
-  color: var(--ink-subtle);
+  color: #777;
   font-size: 12px;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.6;
 }
 
@@ -254,14 +274,27 @@ h2 {
 }
 
 .checks li {
-  padding: 14px 0;
-  border-top: 1px solid var(--hairline);
+  position: relative;
+  margin-top: 10px;
+  padding: 14px 16px 14px 40px;
+  border-radius: 6px;
   font-size: 16px;
+  line-height: 1.8;
+  transition: background-color 0.3s ease;
+}
+
+.checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: #9a9893;
+  font-size: 14px;
   line-height: 1.8;
 }
 
-.checks li:last-child {
-  border-bottom: 1px solid var(--hairline);
+.checks li:hover {
+  background: #f0eeea;
 }
 
 .fine {
@@ -339,15 +372,20 @@ h2 {
   letter-spacing: 0.08em;
 }
 
+.req {
+  margin-left: 2px;
+  color: #c23b3b;
+}
+
 input,
 select,
 textarea {
   width: 100%;
   margin: 0;
-  padding: 12px 14px;
-  border: 1px solid var(--hairline);
-  border-radius: 2px;
-  background: var(--bg-alt);
+  padding: 14px 16px;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  background: #f7f7f7;
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -370,7 +408,7 @@ textarea {
 
 select {
   padding-right: 40px;
-  background-color: var(--bg-alt);
+  background-color: #f7f7f7;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.2 L6 6.2 L11 1.2' fill='none' stroke='%236b6a66' stroke-width='1'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
@@ -390,8 +428,8 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--accent);
-  background-color: var(--bg);
+  border-color: #2a2a28;
+  background-color: #fff;
 }
 
 a:focus-visible,
@@ -532,5 +570,10 @@ button:focus-visible,
   select,
   textarea {
     transition: none;
+  }
+
+  .btn:hover,
+  .nav-links a.nav-cta:hover {
+    transform: none;
   }
 }
