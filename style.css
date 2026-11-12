@@ -76,13 +76,16 @@ a:hover {
   margin-inline: auto;
 }
 
+.site-header {
+  padding-top: 28px;
+  padding-bottom: 8px;
+}
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding-top: 28px;
-  padding-bottom: 8px;
+  gap: 24px;
 }
 
 .brand {
@@ -96,7 +99,7 @@ a:hover {
 
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-end;
   gap: 14px 18px;
@@ -432,7 +435,7 @@ select {
 }
 
 select:invalid {
-  color: #b7b5b0;
+  color: #999;
 }
 
 select option {
@@ -454,43 +457,67 @@ button:focus-visible,
   outline-offset: 4px;
 }
 
+.field .fine {
+  margin-top: 8px;
+}
+
 .form-actions {
-  margin-top: 28px;
+  margin-top: 48px;
 }
 
-.wechat {
-  margin-top: 36px;
+.wx-float {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
 }
 
-.wechat p {
+.wx-qr {
+  width: 0;
+  overflow: hidden;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.wx-float:hover .wx-qr,
+.wx-float:focus-within .wx-qr {
+  width: 140px;
+}
+
+.wx-qr img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  object-fit: contain;
+}
+
+.wx-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   margin: 0;
-  color: var(--ink-muted);
-  font-size: 14px;
+  padding: 14px 10px;
+  border: 0;
+  border-radius: 8px 0 0 8px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
 }
 
-.wechat p.wechat-id {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  border: 1px solid #e4e2dd;
-  border-radius: 6px;
-  background: #f7f7f7;
-  color: var(--ink);
-  font-size: 16px;
-  letter-spacing: 0.03em;
-  user-select: all;
+.wx-tab svg {
+  display: block;
 }
 
-.wechat-id code {
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 15px;
-}
-
-.privacy {
-  margin: 14px 0 0;
-  color: #b0aea8;
-  font-size: 12px;
-  line-height: 1.6;
+.wx-tab:hover {
+  background: #111;
 }
 
 .quiet {
@@ -557,6 +584,14 @@ button:focus-visible,
 .thanks .text-link {
   display: inline-block;
   margin-top: 36px;
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    width: min(720px, calc(100% - 76px));
+    margin-left: 24px;
+    margin-right: 52px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -629,5 +664,9 @@ button:focus-visible,
   .btn:hover,
   .nav-links a.nav-cta:hover {
     transform: none;
+  }
+
+  .wx-qr {
+    transition: none;
   }
 }
