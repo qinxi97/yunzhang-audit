@@ -14,20 +14,18 @@
   <!--
     上线前替换：
     1. FORMSPREE_ENDPOINT → https://formspree.io/f/你的表单 ID
-    2. 页面里的 [你的名字]
-    3. 页面里的 [你的邮箱]，以及两处 mailto:you@example.com
+    2. mailto:your-email@example.com
   -->
 </head>
 <body>
   <a class="skip" href="#content">跳到正文</a>
 
   <header class="wrap nav">
-    <a class="brand" href="#top">云账审计</a>
-    <nav aria-label="页内">
+    <a class="brand" href="index.html">云账审计</a>
+    <nav aria-label="页面">
       <ul class="nav-links">
-        <li><a href="#method">诊断方法</a></li>
-        <li><a href="#service">服务形式</a></li>
-        <li><a href="#contact">联系</a></li>
+        <li><a href="process.html">真实案例</a></li>
+        <li><a href="services.html">服务形式</a></li>
       </ul>
     </nav>
   </header>
@@ -37,34 +35,10 @@
       <h1 id="hero-title">帮用了云但账单说不清的<span class="nw">团队</span>，<span class="rest">找到那笔不该花的钱</span></h1>
       <p class="sub">基于真实资源使用率的成本审计，不是看账单猜。</p>
       <div class="actions">
-        <a class="btn" href="#contact">提交你的云账单结构，免费看一眼</a>
-        <a class="text-link" href="#method">先看看我怎么做</a>
+        <a class="btn" href="#contact-form">获取免费初步诊断 ↓</a>
+        <p class="trust">不涉及原始账单，仅看结构，绝对保密。</p>
+        <a class="text-link" href="process.html">查看真实诊断案例 →</a>
       </div>
-    </section>
-
-    <section class="wrap block" id="case" aria-labelledby="case-title">
-      <h2 id="case-title">一个真实的诊断过程</h2>
-
-      <div class="part">
-        <h3 class="kicker">当时的情况</h3>
-        <p>某团队用的是国内公有云。月账单在数万元这一档。技术侧大约十个人。账单每个月都在涨。哪条业务线在花，没人说得清。</p>
-      </div>
-
-      <div class="part">
-        <h3 class="kicker">发现了什么</h3>
-        <ul class="findings">
-          <li>一条业务线的 GPU 利用率，长期低于 30%。</li>
-          <li>测试环境长期空跑，约占当月账单的 12% 到 18%。</li>
-          <li>对象存储没设生命周期。冷数据约占存储费用的四成。</li>
-        </ul>
-      </div>
-
-      <div class="part">
-        <h3 class="kicker">结果</h3>
-        <p>标出的可优化项，约占月账单的 15% 到 20%。之后每个月有一份报告，成本按业务线拆开。</p>
-      </div>
-
-      <p class="fine">以上案例已脱敏处理。</p>
     </section>
 
     <section class="wrap block" id="method" aria-labelledby="method-title">
@@ -78,26 +52,7 @@
       <p class="fine">完整清单和优化建议模板，在首次免费诊断后提供。</p>
     </section>
 
-    <section class="wrap block" id="service" aria-labelledby="service-title">
-      <h2 id="service-title">怎么合作</h2>
-
-      <article class="offer">
-        <h3>首次免费诊断</h3>
-        <p>你交账单结构就行，不用原始账单。我回一封初步判断，指出先动哪里。不收费，也不承诺能省下多少。</p>
-      </article>
-
-      <article class="offer">
-        <h3>月度订阅</h3>
-        <p>每月一份成本报告，外加微信或飞书答疑。按团队规模定价，具体再聊。图的是这个月账单不会突然失控。</p>
-      </article>
-
-      <article class="offer">
-        <h3>一次性审计</h3>
-        <p>给你完整清单和优化建议文档。再加一次线上讲解。适合想先做一轮摸底的时候。</p>
-      </article>
-    </section>
-
-    <section class="wrap block" id="contact" aria-labelledby="contact-title">
+    <section class="wrap block" id="contact-form" aria-labelledby="contact-title">
       <h2 id="contact-title">聊聊你的云账单</h2>
       <p class="lead">填下面几项。我在 1 到 2 个工作日内回邮件。不需要原始账单，先聊结构就行。</p>
 
@@ -110,12 +65,12 @@
 
         <div class="field">
           <label for="name">称呼 <span class="mark">可选</span></label>
-          <input id="name" name="称呼" type="text" autocomplete="name">
+          <input id="name" name="称呼" type="text" autocomplete="name" placeholder="请输入你的称呼">
         </div>
 
         <div class="field">
           <label for="email">邮箱 <span class="mark">必填</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="请输入你的邮箱" required>
         </div>
 
         <div class="field">
@@ -157,7 +112,7 @@
 
         <div class="field">
           <label for="note">一句话描述你现在的成本问题 <span class="mark">可选</span></label>
-          <textarea id="note" name="问题" maxlength="200" rows="3"></textarea>
+          <textarea id="note" name="问题" maxlength="200" rows="3" placeholder="请用一句话描述你现在的成本问题"></textarea>
           <p class="fine" id="count-hint">最多 200 字</p>
         </div>
 
@@ -168,13 +123,13 @@
         <p class="fine" id="form-warn" hidden>表单还没接上。请先换成你的 Formspree 地址。</p>
       </form>
 
-      <p class="quiet">不想填表？直接发邮件到 <a href="mailto:you@example.com">[你的邮箱]</a></p>
+      <p class="quiet">不想填表？直接发邮件到 <a href="mailto:your-email@example.com">your-email@example.com</a></p>
       <p class="fine">信息只用于这次沟通，不会用于其他用途。</p>
     </section>
   </main>
 
   <footer class="wrap site-footer">
-    <p>云账审计 · [你的名字] · <a href="mailto:you@example.com">[你的邮箱]</a></p>
+    <p>© 2024 云账审计. 保留所有权利。</p>
   </footer>
 
   <script>

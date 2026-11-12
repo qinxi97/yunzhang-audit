@@ -25,7 +25,7 @@
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -43,8 +43,15 @@ body {
   color: var(--ink);
 }
 
-a {
-  transition: opacity 0.3s ease;
+a,
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .skip {
@@ -103,13 +110,19 @@ a {
   text-decoration: none;
 }
 
-.nav-links a:hover {
-  color: var(--accent);
-  opacity: 0.85;
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .hero {
   padding-top: 80px;
+}
+
+.page-top {
+  padding-top: 72px;
 }
 
 .nw {
@@ -159,7 +172,8 @@ a {
 }
 
 .btn:hover {
-  opacity: 0.72;
+  background: #444440;
+  text-decoration: none;
 }
 
 .text-link {
@@ -168,9 +182,20 @@ a {
   text-underline-offset: 4px;
 }
 
-.text-link:hover {
-  opacity: 0.72;
+.text-link:hover,
+.quiet a:hover,
+.site-footer a:hover {
+  color: #3d4f4b;
   text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.trust {
+  margin: 0;
+  color: var(--ink-subtle);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 .block {
@@ -247,9 +272,44 @@ h2 {
 }
 
 .offer + .offer {
-  margin-top: 36px;
-  padding-top: 36px;
+  margin-top: 64px;
+  padding-top: 64px;
   border-top: 1px solid var(--hairline);
+}
+
+.points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.points li {
+  position: relative;
+  margin: 0;
+  padding: 4px 0 4px 18px;
+  line-height: 1.8;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.95em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.stat {
+  display: block;
+  margin: 4px 0 12px;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
 }
 
 .offer h3 {
@@ -284,17 +344,22 @@ select,
 textarea {
   width: 100%;
   margin: 0;
-  padding: 10px 0;
-  border: 0;
-  border-bottom: 1px solid var(--hairline);
-  border-radius: 0;
-  background: transparent;
+  padding: 12px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: var(--bg-alt);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
   -webkit-appearance: none;
   appearance: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--ink-subtle);
 }
 
 textarea {
@@ -304,10 +369,11 @@ textarea {
 }
 
 select {
-  padding-right: 28px;
+  padding-right: 40px;
+  background-color: var(--bg-alt);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.2 L6 6.2 L11 1.2' fill='none' stroke='%236b6a66' stroke-width='1'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 2px center;
+  background-position: right 14px center;
   background-size: 12px 8px;
   cursor: pointer;
 }
@@ -324,7 +390,8 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-bottom-color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--bg);
 }
 
 a:focus-visible,
@@ -345,14 +412,8 @@ button:focus-visible,
 }
 
 .quiet a {
-  color: inherit;
-  text-decoration: none;
-  text-underline-offset: 4px;
-}
-
-.quiet a:hover {
   color: var(--accent);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .hp {
@@ -387,10 +448,6 @@ button:focus-visible,
   text-underline-offset: 4px;
 }
 
-.site-footer a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
 
 .thanks {
   padding-top: max(120px, 18vh);
@@ -419,7 +476,8 @@ button:focus-visible,
     width: min(720px, 70%);
   }
 
-  .hero {
+  .hero,
+  .page-top {
     padding-top: 120px;
   }
 
@@ -429,6 +487,10 @@ button:focus-visible,
 
   .hero h1 {
     font-size: 44px;
+  }
+
+  .stat {
+    font-size: 40px;
   }
 
   h2 {
@@ -460,8 +522,15 @@ button:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   a,
-  .btn {
+  button,
+  input,
+  select,
+  textarea {
     transition: none;
   }
 }
